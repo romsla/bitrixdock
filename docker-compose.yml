@@ -10,6 +10,7 @@ services:
         links:
             - mysql
             - memcached
+            - mail
         restart: always
         network_mode: bridge
     nginx:
@@ -55,3 +56,12 @@ services:
             - ./data/memcached:/var/lib/memcached
             - /var/www/bitrix:/var/www/bitrix
             - /etc/localtime:/etc/localtime/:ro
+    mail:
+      image: namshi/smtp
+      environment:
+        - SMARTHOST_ADDRESS=smtp.server.com
+        - SMARTHOST_PORT=587
+        - SMARTHOST_USER=username
+        - SMARTHOST_PASSWORD=password
+        - SMARTHOST_ALIASES=*.usersenddomain.com
+      restart: always
