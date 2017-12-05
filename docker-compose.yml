@@ -65,3 +65,4 @@ services:
         - SMARTHOST_PASSWORD=password
         - SMARTHOST_ALIASES=*.usersenddomain.com
       restart: always
+      network_mode: bridge
