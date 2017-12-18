@@ -9,6 +9,7 @@ ADD www/index.html /var/www/html/
 
 RUN usermod -u 1000 www-data
 
-CMD ["nginx"]
+COPY ./entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 80 443
