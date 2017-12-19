@@ -2,7 +2,7 @@ version: '2'
 
 services:
     php:
-        build: ./php
+        image: andata/bitrix-php
         volumes_from:
             - source
 #        ports:
@@ -14,7 +14,7 @@ services:
         restart: always
         network_mode: bridge
     nginx:
-        build: ./nginx
+        image: andata/bitrix-nginx
         volumes_from:
             - source
 #        ports:
@@ -25,7 +25,7 @@ services:
         restart: always
         network_mode: bridge
     mysql:
-        build: ./mysql
+        image: andata/bitrix-mysql
         volumes_from:
             - source
 #        ports:
