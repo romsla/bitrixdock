@@ -9,6 +9,8 @@ ADD www/index.html /var/www/html/
 
 RUN usermod -u 1000 www-data
 
+RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log
+
 ENV BITRIX_BACKEND_HOST=php
 
 COPY ./entrypoint.sh /
