@@ -9,6 +9,8 @@ ADD www/index.html /var/www/html/
 
 RUN usermod -u 1000 www-data
 
+ENV BITRIX_BACKEND_HOST=php
+
 COPY ./entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
