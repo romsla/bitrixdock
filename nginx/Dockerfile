@@ -14,6 +14,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/
 ENV BITRIX_BACKEND_HOST=php
 
 COPY ./entrypoint.sh /
+RUN ["chmod", "+x", "/entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 80 443
