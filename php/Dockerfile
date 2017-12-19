@@ -1,4 +1,4 @@
-FROM romsla/php71-fpm:latest
+FROM andata/bitrix-php71-fpm:latest
 
 MAINTAINER vitams
 
