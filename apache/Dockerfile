@@ -8,6 +8,10 @@ RUN apk add --no-cache apache2-proxy; \
 
 COPY conf /etc/apache2
 
-EXPOSE 80 443
+ENV BITRIX_BACKEND_HOST=php
 
-CMD /usr/sbin/httpd -DFOREGROUND 
+COPY ./entrypoint.sh /
+RUN ["chmod", "+x", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+
+EXPOSE 80 443
